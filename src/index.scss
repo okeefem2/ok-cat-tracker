@@ -1,0 +1,31 @@
+@import 'scss/variables';
+@import 'scss/mixins';
+@import 'scss/form';
+@import 'scss/button';
+
+* {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body { height: 100%; }
+
+body {
+    background-color: $color-background-dark;
+    color: $color-white;
+    font-family: 'Luna';
+    letter-spacing: 0.15em;
+    max-height: 100%;
+    overflow-x: hidden;
+    perspective: 1px;
+    perspective-origin: center top;
+    scroll-behavior: smooth !important;
+    transform-style: preserve-3d;
+}
