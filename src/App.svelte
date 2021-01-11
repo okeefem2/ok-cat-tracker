@@ -2,25 +2,35 @@
 	import { format } from 'date-fns';
 	import PortionListItem from './PortionListItem.svelte';
 	const today = format(new Date, 'yyyy-MM-dd');
-	const portions = 1;
+	let portions = 1;
 	interface Feeding {
 		time: string;
 		portions: number;
 	}
 
-	const feedings = Array.from({ length: 10 }, () => ({ time: today, portions: 1 }));
+	let feedings: Feeding[] = [];
+
+	function updatePortions(mod = 1) {
+		if (portions > 1 || mod === 1) {
+			portions += mod;
+		}
+	}
+
+	function feedKitties() {
+		feedings = [ ...feedings, { portions, time: format(new Date, 'yyyy-MM-dd HH:mm ') }];
+	}
 </script>
 
 <main>
 	<h1>Cat Tracker {today}</h1>
 
 	<div class="row">
-		<button class="button">Less</button>
+		<button class="button" on:click={() => updatePortions(-1)}>Less</button>
 		<p class="portions">{ portions } Portions</p>
-		<button class="button">More</button>
+		<button class="button" on:click={() => updatePortions(1)}>More</button>
 	</div>
 	<div class="row">
-		<button class="button">Feed</button>
+		<button class="button" on:click={feedKitties}>Feed</button>
 	</div>
 
 	<div class="portions-table-container table-row">
