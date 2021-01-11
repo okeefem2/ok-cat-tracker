@@ -8,24 +8,24 @@
 		portions: number;
 	}
 
-	const feedings = Array.from({ length: 1000 }, () => ({ time: today, portions: 1 }));
+	const feedings = Array.from({ length: 10 }, () => ({ time: today, portions: 1 }));
 </script>
 
 <main>
 	<h1>Cat Tracker {today}</h1>
 
 	<div class="row">
-		<button>Less</button>
+		<button class="button">Less</button>
 		<p class="portions">{ portions } Portions</p>
-		<button>More</button>
+		<button class="button">More</button>
 	</div>
 	<div class="row">
-		<button>Feed</button>
+		<button class="button">Feed</button>
 	</div>
 
-	<div class="portions-table-container">
-		<button>Today</button>
-		<input type="date" value="{today}"/>
+	<div class="portions-table-container table-row">
+		<button class="button">Today</button>
+		<input class="input-field" type="date" value="{today}" name="date"/>
 	</div>
 
 	<div class="portions-table-container">
@@ -46,10 +46,9 @@
 
 </main>
 
-<style lang="scss">
-	:global {
-		@import 'index.scss';
-	}
+
+<style lang="scss" global>
+	@import "index.scss";
 
 	main {
 		height: 100%;
@@ -72,16 +71,14 @@
 
 	.portions-table-container {
 		width: 50%;
+		display: flex;
 	}
-	.portions-table {
-		overflow-y: atuo;
-		width: 100%;
-	}
+
 	table, tr {
 		width: 100%;
 	}
 
-	tr {
+	tr, .table-row {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
