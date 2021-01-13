@@ -1,11 +1,14 @@
-.search-input-row {
-    display: flex;
+.portion-table-container {
     margin-top: 100px;
+    width: 50%;
+
+    > div {
+        display: flex;
+    }
 }
 
-.portions-table-container {
+.search-input-row {
     display: flex;
-    width: 50%;
 }
 
 thead tr {

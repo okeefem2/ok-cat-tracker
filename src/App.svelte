@@ -45,7 +45,7 @@
 </script>
 
 <style lang='scss' global>
-    @import 'index.scss';
+    @import 'index';
 </style>
 
 <main>
@@ -54,9 +54,9 @@
 
         <div class='row'>
             <button
-                class='button'
+                class='button right-spaced'
                 on:click={() => updatePortions(-1)}>Less</button>
-            <p class='portions'>{portions} Portions</p>
+            <p class='portions right-spaced'>{portions} Portions</p>
             <button
                 class='button'
                 on:click={() => updatePortions(1)}>More</button>
