@@ -31,12 +31,12 @@ body {
 }
 
 main {
-    height: 100%;
-    padding: 1rem;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    height: 100%;
     justify-content: space-around;
+    padding: 1rem;
 }
 
 .right-spaced {
@@ -44,7 +44,7 @@ main {
 }
 
 .row {
+    align-items: center;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
 }

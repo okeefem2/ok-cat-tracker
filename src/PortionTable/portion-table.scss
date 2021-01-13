@@ -4,22 +4,24 @@
 }
 
 .portions-table-container {
-    width: 50%;
     display: flex;
+    width: 50%;
 }
 
 thead tr {
+    border-bottom: 1px solid $color-white;
     margin-bottom: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px solid $color-white;
 }
 
-table, tr {
+table,
+tr {
     width: 100%;
 }
 
-tr, .table-row {
+tr,
+.table-row {
+    align-items: center;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
