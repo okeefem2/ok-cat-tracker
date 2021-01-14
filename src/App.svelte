@@ -38,9 +38,8 @@
             date: today,
             portions,
             time: format(new Date(), 'yyyy-MM-dd HH:mm '),
-            uid: user.uid,
         };
-        db.collection('feedings').add(feeding);
+        db.collection(`users/${user.uid}/feedings`).add(feeding);
     }
 </script>
 
