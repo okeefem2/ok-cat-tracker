@@ -1,10 +1,12 @@
 <script>
     import { format } from 'date-fns';
-    import PortionListItem from '../PortionListItem.svelte';
+    import PortionListItem from './PortionListItem.svelte';
     import { db } from '../firebase';
     import { startWith, map, switchMap } from 'rxjs/operators';
     import { collectionData } from 'rxfire/firestore';
     import { BehaviorSubject } from 'rxjs';
+
+    export let uid;
 
     const today = format(new Date(), 'yyyy-MM-dd');
 
@@ -13,7 +15,7 @@
     const query = new BehaviorSubject(historyDate);
 
     const feedings = query.pipe(
-        map(date => db.collection('feedings').where('date', '==', date)),
+        map(date => db.collection('feedings').where('date', '==', date).where('uid', '==', uid)),
         switchMap(q => collectionData(q)),
         startWith([])
     );
@@ -49,7 +51,7 @@
             </thead>
             <tbody>
                 {#each $feedings as feeding}
-                    <PortionListItem {...feeding}/>
+                    <PortionListItem time={feeding.time} portions={feeding.portions}/>
                 {/each}
             </tbody>
         </table>

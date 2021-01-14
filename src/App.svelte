@@ -65,7 +65,7 @@
             <button class='button' on:click={feedKitties}>Feed</button>
         </div>
 
-        <PortionTable />
+        <PortionTable uid={user.uid}/>
     {:else}
         <div class='row sign-in-row'>
             <div class='input-field right-spaced'>
