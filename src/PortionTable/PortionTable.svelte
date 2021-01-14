@@ -15,7 +15,7 @@
     const query = new BehaviorSubject(historyDate);
 
     const feedings = query.pipe(
-        map(date => db.collection('feedings').where('date', '==', date).where('uid', '==', uid)),
+        map(date => db.collection(`users/${uid}/feedings`).where('date', '==', date)),
         switchMap(q => collectionData(q)),
         startWith([])
     );
